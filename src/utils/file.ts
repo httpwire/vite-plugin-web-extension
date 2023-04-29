@@ -17,9 +17,12 @@ export function getNormalizedFileName(
 }
 
 export function getInputFileName(inputFileName: string, root: string): string {
-  return `${root}/${getNormalizedFileName(inputFileName, true)}`;
+  return `${root}/${getNormalizedFileName(
+    inputFileName.replace("src/", ""),
+    true
+  )}`;
 }
 
 export function getOutputFileName(inputFileName: string): string {
-  return getNormalizedFileName(inputFileName, false);
+  return getNormalizedFileName(inputFileName.replace("src/", ""), false);
 }
